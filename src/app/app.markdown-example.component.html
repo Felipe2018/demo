@@ -1,0 +1,47 @@
+<h1>
+  Example
+</h1>
+<textarea style="width: 100%;" rows="10" cols="50" name="string" (keyup)="update($event)">{{string}}</textarea>
+<br />
+<strong>
+  Options
+</strong>
+<input type="checkbox" id="gfm" [(ngModel)]="options.gfm" /><label for="gfm"> gfm </label>
+<input type="checkbox" id="tables" [(ngModel)]="options.tables" /><label for="tables"> tables </label>
+<input type="checkbox" id="breaks" [(ngModel)]="options.breaks" /><label for="breaks"> breaks </label>
+<input type="checkbox" id="pedantic" [(ngModel)]="options.pedantic" /><label for="pedantic"> pedantic </label>
+<input type="checkbox" id="sanitize" [(ngModel)]="options.sanitize" /><label for="sanitize"> sanitize </label>
+<input type="checkbox" id="smartLists" [(ngModel)]="options.smartLists" /><label for="smartLists"> smartLists </label>
+<input type="checkbox" id="smartypants" [(ngModel)]="options.smartypants" /><label for="smartypants"> smartypants </label>
+
+<h1>
+  Component property string.
+</h1>
+<ngx-markdown [interpolation]="this" [options]="options" [callback]="clbk" [string]="string" (result)="getResult($event)"></ngx-markdown>
+
+<h1>
+  Component ng-content.
+</h1>
+<ngx-markdown [interpolation]="this" [options]="options" [callback]="clbk">
+  {{string}}
+</ngx-markdown>
+
+<h1>
+  Directive string
+</h1>
+<div
+  [ngxmarkdown]="string"
+  [callback]="clbk"
+  [interpolation]="this"
+  [options]="options"
+></div>
+
+<h1>
+  Directive ng-content
+</h1>
+<div
+  ngxmarkdown
+  [callback]="clbk"
+  [interpolation]="this"
+  [options]="options"
+>{{string}}</div>
